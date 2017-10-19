@@ -5,22 +5,11 @@ class Field {
 
     // Первичная инициализация поля
     Field() {
-        /*for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (i % 2 == 0 || i == 5) {
-                    if (j != 2 && j != 5)
-                        field[i][j] = " ";
-                    else field[i][j] = "|";
-                }
-                else if (j != 2 && j != 5)
-                    field[i][j] = "_";
-                else field[i][j] = "|";
-            }
-        }*/
+        int count = 1;
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 5; j++) {
                 if (j % 2 == 0)
-                    field[i][j] = "_";
+                    field[i][j] = String.valueOf(count++);
                 else field[i][j] = " ";
             }
     }
