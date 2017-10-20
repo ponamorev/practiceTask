@@ -12,26 +12,16 @@ class GameLogic {
         System.out.println("Добро пожаловать в игру \"Крестики-нолики\"!");
         System.out.println("Перед вами пронумерованные ячейки поля.");
         System.out.println("Ваш ход первый.\n");
-        // Инициализация поля для игры и вывод его на экран
-        Field f = new Field();
-        for (int i = 0; i < 3; i++) {
-            System.out.print("\t");
-            for (int j = 0; j < 5; j++)
-                System.out.print(f.getField(i, j));
-            System.out.println();
-        }
+        // Инициализация поля для игры
+        Field field = new Field();
+        // Вывод на экран
+        field.printField();
         // создание объекта типа Random для генерации псевдослучайных чисел
         Random random = new Random();
         // создание объекта типа Scanner для ввода значений через консоль
-        Scanner in = new Scanner(System.in);
-        boolean winX, winO, noWin;
-
-        for (int i = 0; i < 3; i++)
-            for (int j = 0; j < 5; j++) {
-                if (j % 2 == 0)
-                    f.setField(i, j, "_");
-                else f.setField(i, j, " ");
-            }
+        Scanner inputStream = new Scanner(System.in);
+        // Делаем поле пустым
+        field.emptyField();
 
         // Цикл круга игры "человек-компьютер"
         do {
@@ -40,88 +30,88 @@ class GameLogic {
             System.out.println("Выберите номер свободной ячейки:");
             int state = -1;
             while (state == -1) {
-                int temp = in.nextInt();
+                int temp = inputStream.nextInt();
                 // выбор и заполнение ячейки
                 switch (temp) {
                     case 1:
-                        if (f.getField(0, 0) == "X" || f.getField(0, 0) == "0") {
+                        if (field.getField(0, 0) == "X" || field.getField(0, 0) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(0, 0, "X");
+                            field.setField(0, 0, "X");
                             break;
                         }
                     case 2:
-                        if (f.getField(0, 2) == "X" || f.getField(0, 2) == "0") {
+                        if (field.getField(0, 2) == "X" || field.getField(0, 2) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(0, 2, "X");
+                            field.setField(0, 2, "X");
                             break;
                         }
                     case 3:
-                        if (f.getField(0, 4) == "X" || f.getField(0, 4) == "0") {
+                        if (field.getField(0, 4) == "X" || field.getField(0, 4) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(0, 4, "X");
+                            field.setField(0, 4, "X");
                             break;
                         }
                     case 4:
-                        if (f.getField(1, 0) == "X" || f.getField(1, 0) == "0") {
+                        if (field.getField(1, 0) == "X" || field.getField(1, 0) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(1, 0, "X");
+                            field.setField(1, 0, "X");
                             break;
                         }
                     case 5:
-                        if (f.getField(1, 2) == "X" || f.getField(1, 2) == "0") {
+                        if (field.getField(1, 2) == "X" || field.getField(1, 2) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(1, 2, "X");
+                            field.setField(1, 2, "X");
                             break;
                         }
                     case 6:
-                        if (f.getField(1, 4) == "X" || f.getField(1, 4) == "0") {
+                        if (field.getField(1, 4) == "X" || field.getField(1, 4) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(1, 4, "X");
+                            field.setField(1, 4, "X");
                             break;
                         }
                     case 7:
-                        if (f.getField(2, 0) == "X" || f.getField(2, 0) == "0") {
+                        if (field.getField(2, 0) == "X" || field.getField(2, 0) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(2, 0, "X");
+                            field.setField(2, 0, "X");
                             break;
                         }
                     case 8:
-                        if (f.getField(2, 2) == "X" || f.getField(2, 2) == "0") {
+                        if (field.getField(2, 2) == "X" || field.getField(2, 2) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(2, 2, "X");
+                            field.setField(2, 2, "X");
                             break;
                         }
                     case 9:
-                        if (f.getField(2, 4) == "X" || f.getField(2, 4) == "0") {
+                        if (field.getField(2, 4) == "X" || field.getField(2, 4) == "0") {
                             System.out.println("Эта ячейка занята. Повторите ввод.");
                             break;
                         } else {
                             state = 1;
-                            f.setField(2, 4, "X");
+                            field.setField(2, 4, "X");
                             break;
                         }
                     default:
@@ -129,43 +119,9 @@ class GameLogic {
                 }
             }
 
-            // промежуточный вывод поля игры
-            System.out.println();
-            for (int i = 0; i < 3; i++) {
-                System.out.print("\t");
-                for (int j = 0; j < 5; j++)
-                    System.out.print(f.getField(i, j));
-                System.out.println();
-            }
-
-            winX = (f.getField(0, 0) == "X" && f.getField(0, 2) == "X" && f.getField(0, 4) == "X") ||
-                    (f.getField(1, 0) == "X" && f.getField(1, 2) == "X" && f.getField(1, 4) == "X") ||
-                    (f.getField(2, 0) == "X" && f.getField(2, 2) == "X" && f.getField(2, 4) == "X") ||
-                    (f.getField(0, 0) == "X" && f.getField(1, 0) == "X" && f.getField(2, 0) == "X") ||
-                    (f.getField(0, 2) == "X" && f.getField(1, 2) == "X" && f.getField(2, 2) == "X") ||
-                    (f.getField(0, 4) == "X" && f.getField(1, 4) == "X" && f.getField(2, 4) == "X") ||
-                    (f.getField(0, 0) == "X" && f.getField(1, 2) == "X" && f.getField(2, 4) == "X") ||
-                    (f.getField(0, 4) == "X" && f.getField(1, 2) == "X" && f.getField(2, 0) == "X");
-            winO = (f.getField(0, 0) == "0" && f.getField(0, 2) == "0" && f.getField(0, 4) == "0") ||
-                    (f.getField(1, 0) == "0" && f.getField(1, 2) == "0" && f.getField(1, 4) == "0") ||
-                    (f.getField(2, 0) == "0" && f.getField(2, 2) == "0" && f.getField(2, 4) == "0") ||
-                    (f.getField(0, 0) == "0" && f.getField(1, 0) == "0" && f.getField(2, 0) == "0") ||
-                    (f.getField(0, 2) == "0" && f.getField(1, 2) == "0" && f.getField(2, 2) == "0") ||
-                    (f.getField(0, 4) == "0" && f.getField(1, 4) == "0" && f.getField(2, 4) == "0") ||
-                    (f.getField(0, 0) == "0" && f.getField(1, 2) == "0" && f.getField(2, 4) == "0") ||
-                    (f.getField(0, 4) == "0" && f.getField(1, 2) == "0" && f.getField(2, 0) == "0");
-            noWin = ((f.getField(0, 0) == "X" || f.getField(0, 0) == "0") &
-                    (f.getField(0, 2) == "X" || f.getField(0, 2) == "0") &
-                    (f.getField(0, 4) == "X" || f.getField(0, 4) == "0") &
-                    (f.getField(1, 0) == "X" || f.getField(1, 0) == "0") &
-                    (f.getField(1, 2) == "X" || f.getField(1, 2) == "0") &
-                    (f.getField(1, 4) == "X" || f.getField(1, 4) == "0") &
-                    (f.getField(2, 0) == "X" || f.getField(2, 0) == "0") &
-                    (f.getField(2, 2) == "X" || f.getField(2, 2) == "0") &
-                    (f.getField(2, 4) == "X" || f.getField(2, 4) == "0") &
-                    winX == false & winO == false);
+            field.printField();
             // проверка условия после хода игрока
-            if (noWin == true || winX == true || winO == true)
+            if (field.getNoWin() == true || field.getWinX() == true || field.getWinO() == true)
                 break;
 
             // Компьютер
@@ -176,83 +132,83 @@ class GameLogic {
                 if (temp > 0 & temp < 10) {
                     switch (temp) {
                         case 1:
-                            if (f.getField(0, 0) == "X" || f.getField(0, 0) == "0")
+                            if (field.getField(0, 0) == "X" || field.getField(0, 0) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(0, 0, "0");
+                                field.setField(0, 0, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 2:
-                            if (f.getField(0, 2) == "X" || f.getField(0, 2) == "0")
+                            if (field.getField(0, 2) == "X" || field.getField(0, 2) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(0, 2, "0");
+                                field.setField(0, 2, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 3:
-                            if (f.getField(0, 4) == "X" || f.getField(0, 4) == "0")
+                            if (field.getField(0, 4) == "X" || field.getField(0, 4) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(0, 4, "0");
+                                field.setField(0, 4, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 4:
-                            if (f.getField(1, 0) == "X" || f.getField(1, 0) == "0")
+                            if (field.getField(1, 0) == "X" || field.getField(1, 0) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(1, 0, "0");
+                                field.setField(1, 0, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 5:
-                            if (f.getField(1, 2) == "X" || f.getField(1, 2) == "0")
+                            if (field.getField(1, 2) == "X" || field.getField(1, 2) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(1, 2, "0");
+                                field.setField(1, 2, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 6:
-                            if (f.getField(1, 4) == "X" || f.getField(1, 4) == "0")
+                            if (field.getField(1, 4) == "X" || field.getField(1, 4) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(1, 4, "0");
+                                field.setField(1, 4, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 7:
-                            if (f.getField(2, 0) == "X" || f.getField(2, 0) == "0")
+                            if (field.getField(2, 0) == "X" || field.getField(2, 0) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(2, 0, "0");
+                                field.setField(2, 0, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 8:
-                            if (f.getField(2, 2) == "X" || f.getField(2, 2) == "0")
+                            if (field.getField(2, 2) == "X" || field.getField(2, 2) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(2, 2, "0");
+                                field.setField(2, 2, "0");
                                 System.out.println(temp);
                                 break;
                             }
                         case 9:
-                            if (f.getField(2, 4) == "X" || f.getField(2, 4) == "0")
+                            if (field.getField(2, 4) == "X" || field.getField(2, 4) == "0")
                                 break;
                             else {
                                 state = 1;
-                                f.setField(2, 4, "0");
+                                field.setField(2, 4, "0");
                                 System.out.println(temp);
                                 break;
                             }
@@ -260,50 +216,16 @@ class GameLogic {
                 }
             }
 
-            // промежуточный вывод поля игры
-            System.out.println();
-            for (int i = 0; i < 3; i++) {
-                System.out.print("\t");
-                for (int j = 0; j < 5; j++)
-                    System.out.print(f.getField(i, j));
-                System.out.println();
-            }
-
-            winX = (f.getField(0, 0) == "X" && f.getField(0, 2) == "X" && f.getField(0, 4) == "X") ||
-                    (f.getField(1, 0) == "X" && f.getField(1, 2) == "X" && f.getField(1, 4) == "X") ||
-                    (f.getField(2, 0) == "X" && f.getField(2, 2) == "X" && f.getField(2, 4) == "X") ||
-                    (f.getField(0, 0) == "X" && f.getField(1, 0) == "X" && f.getField(2, 0) == "X") ||
-                    (f.getField(0, 2) == "X" && f.getField(1, 2) == "X" && f.getField(2, 2) == "X") ||
-                    (f.getField(0, 4) == "X" && f.getField(1, 4) == "X" && f.getField(2, 4) == "X") ||
-                    (f.getField(0, 0) == "X" && f.getField(1, 2) == "X" && f.getField(2, 4) == "X") ||
-                    (f.getField(0, 4) == "X" && f.getField(1, 2) == "X" && f.getField(2, 0) == "X");
-            winO = (f.getField(0, 0) == "0" && f.getField(0, 2) == "0" && f.getField(0, 4) == "0") ||
-                    (f.getField(1, 0) == "0" && f.getField(1, 2) == "0" && f.getField(1, 4) == "0") ||
-                    (f.getField(2, 0) == "0" && f.getField(2, 2) == "0" && f.getField(2, 4) == "0") ||
-                    (f.getField(0, 0) == "0" && f.getField(1, 0) == "0" && f.getField(2, 0) == "0") ||
-                    (f.getField(0, 2) == "0" && f.getField(1, 2) == "0" && f.getField(2, 2) == "0") ||
-                    (f.getField(0, 4) == "0" && f.getField(1, 4) == "0" && f.getField(2, 4) == "0") ||
-                    (f.getField(0, 0) == "0" && f.getField(1, 2) == "0" && f.getField(2, 4) == "0") ||
-                    (f.getField(0, 4) == "0" && f.getField(1, 2) == "0" && f.getField(2, 0) == "0");
-            noWin = ((f.getField(0, 0) == "X" || f.getField(0, 0) == "0") &
-                    (f.getField(0, 2) == "X" || f.getField(0, 2) == "0") &
-                    (f.getField(0, 4) == "X" || f.getField(0, 4) == "0") &
-                    (f.getField(1, 0) == "X" || f.getField(1, 0) == "0") &
-                    (f.getField(1, 2) == "X" || f.getField(1, 2) == "0") &
-                    (f.getField(1, 4) == "X" || f.getField(1, 4) == "0") &
-                    (f.getField(2, 0) == "X" || f.getField(2, 0) == "0") &
-                    (f.getField(2, 2) == "X" || f.getField(2, 2) == "0") &
-                    (f.getField(2, 4) == "X" || f.getField(2, 4) == "0") &
-                    winX == false & winO == false);
+            field.printField();
             // проверка условия после хода игрока
-            if (noWin == true || winX == true || winO == true)
+            if (field.getNoWin() == true || field.getWinX() == true ||field.getWinO()== true)
                 break;
         } while (true);
-        if (noWin)
+        if (field.getNoWin())
             System.out.println("Ничья.");
-        else if (winX)
+        else if (field.getWinX())
             System.out.println("Вы победили.");
-        else if (winO)
+        else if (field.getWinO())
             System.out.println("Победил компьютер.");
         endGame();
     }
